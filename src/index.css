@@ -1,0 +1,22 @@
+/* Global index styles */
+:root {
+  --bg: #f9fafb;
+  --text: #111827;
+  --muted: #6b7280;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: var(--bg);
+  color: var(--text);
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* Utility */
+.container { max-width: 900px; margin: 32px auto; padding: 0 16px; }
