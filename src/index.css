@@ -1,22 +1,154 @@
-/* Global index styles */
+/* Centralized Design System & Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
 :root {
-  --bg: #f9fafb;
-  --text: #111827;
-  --muted: #6b7280;
+  /* Colors */
+  --bg: #f8fafc;
+  --bg-gradient: linear-gradient(135deg, #f5f3ff 0%, #fdf2f8 50%, #eff6ff 100%);
+  --text: #1e1b4b; /* Deep slate/indigo for kids readability */
+  --muted: #64748b;
+  --purple-500: #7c3aed;
+  --purple-600: #6d28d9;
+  --pink-400: #f472b6;
+  --pink-500: #ec4899;
+  
+  /* Pastels */
+  --lavender-50: #faf5ff;
+  --lavender-100: #f3e8ff;
+  --lavender-200: #e9d5ff;
+  --sky-100: #e0f2fe;
+  --sky-200: #bae6fd;
+  
+  /* Borders and Shadow Design Tokens */
+  --glass-bg: rgba(255, 255, 255, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.6);
+  --border-width-thick: 3px;
+  --border-width-thin: 1.5px;
+  
+  --radius-xl: 24px;
+  --radius-lg: 20px;
+  --radius-md: 16px;
+  --radius-sm: 12px;
+  
+  /* Soft ambient shadows (inspired by premium Apple/Duolingo apps) */
+  --shadow-flat: 0 4px 0 rgba(0, 0, 0, 0.04);
+  --shadow-soft: 0 12px 30px rgba(124, 58, 237, 0.05);
+  --shadow-elev: 0 20px 40px rgba(124, 58, 237, 0.08);
+  --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.03);
+  
+  /* Transitions */
+  --transition-bounce: 350ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  --transition-smooth: 250ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  --transition-fast: 150ms ease;
+
+  /* Gradients */
+  --primary-grad: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+  --secondary-grad: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
+  --success-grad: linear-gradient(135deg, #22c55e 0%, #15803d 100%);
+  --accent-grad: linear-gradient(135deg, #ffd6e0 0%, #e9d5ff 100%);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html, body, #root {
-  height: 100%;
-  margin: 0;
+  min-height: 100%;
 }
 
 body {
-  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-  background: var(--bg);
+  font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg-gradient);
+  background-attachment: fixed;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* Typography Hierarchy */
+h1 {
+  font-size: clamp(28px, 5vw, 44px);
+  font-weight: 900;
+  line-height: 1.15;
   color: var(--text);
 }
 
-a { color: inherit; text-decoration: none; }
+h2 {
+  font-size: clamp(20px, 4vw, 28px);
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--text);
+}
 
-/* Utility */
-.container { max-width: 900px; margin: 32px auto; padding: 0 16px; }
+h3 {
+  font-size: clamp(16px, 3vw, 20px);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--text);
+}
+
+p {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* Container responsive system */
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 24px 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Base Card structure with kids-first design (soft border, rounded, solid colors) */
+.card {
+  background: var(--glass-bg);
+  border: var(--border-width-thin) solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-soft), var(--shadow-glass);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 28px;
+  transition: transform var(--transition-bounce), box-shadow var(--transition-bounce), border-color var(--transition-smooth);
+}
+
+/* Helpers */
+.spacer {
+  flex: 1;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Scrollbar customization */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(241, 245, 249, 0.5);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(203, 213, 225, 0.8);
+  border-radius: 99px;
+  border: 2.5px solid transparent;
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.8);
+  border-radius: 99px;
+  border: 2.5px solid transparent;
+  background-clip: padding-box;
+}

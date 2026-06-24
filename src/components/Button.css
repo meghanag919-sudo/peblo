@@ -1,0 +1,149 @@
+/* Premium 3D buttons inspired by Duolingo and premium kids apps */
+
+.app-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  outline: none;
+  font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border-radius: 16px;
+  transition: filter 0.15s ease, opacity 0.15s ease;
+  user-select: none;
+  width: auto;
+}
+
+.app-btn:focus-visible {
+  outline: 3px solid var(--purple-500);
+  outline-offset: 4px;
+}
+
+/* Button Inner shadow / 3D base */
+.btn-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 100%;
+  padding: 12px 24px;
+  border-radius: 16px;
+  color: white;
+  transition: transform 0.15s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-sizing: border-box;
+}
+
+/* Disabled state */
+.app-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+.app-btn:disabled .btn-inner {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Primary Variant (Lavender/Pink/Purple Gradient) */
+.btn-primary {
+  background: linear-gradient(180deg, #7c3aed 0%, #6d28d9 100%);
+  border-radius: 16px;
+  padding-bottom: 5px; /* Creates the 3D base depth */
+}
+
+.btn-primary .btn-inner {
+  background: var(--primary-grad, linear-gradient(135deg, #7c3aed 0%, #ec4899 100%));
+  box-shadow: 0 4px 0 #6d28d9, 0 8px 16px rgba(124, 58, 237, 0.2);
+}
+
+.btn-primary:not(:disabled):hover .btn-inner {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #6d28d9, 0 12px 20px rgba(124, 58, 237, 0.25);
+  filter: brightness(1.05);
+}
+
+.btn-primary:not(:disabled):active .btn-inner {
+  transform: translateY(4px);
+  box-shadow: 0 0px 0 #6d28d9, 0 2px 4px rgba(124, 58, 237, 0.1);
+}
+
+
+/* Secondary Variant (Soft Glassmorphism Lavender) */
+.btn-secondary {
+  background: rgba(233, 213, 255, 0.4);
+  border-radius: 16px;
+  padding-bottom: 4px;
+}
+
+.btn-secondary .btn-inner {
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--purple-500);
+  border: 1.5px solid rgba(233, 213, 255, 0.8);
+  box-shadow: 0 4px 0 rgba(233, 213, 255, 0.8), 0 6px 12px rgba(13, 12, 30, 0.05);
+}
+
+.btn-secondary:not(:disabled):hover .btn-inner {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 rgba(233, 213, 255, 0.8), 0 10px 16px rgba(13, 12, 30, 0.08);
+  background: #ffffff;
+}
+
+.btn-secondary:not(:disabled):active .btn-inner {
+  transform: translateY(4px);
+  box-shadow: 0 0px 0 rgba(233, 213, 255, 0.8), 0 2px 4px rgba(13, 12, 30, 0.05);
+}
+
+
+/* Success Variant (Green) */
+.btn-success {
+  background: #15803d;
+  border-radius: 16px;
+  padding-bottom: 5px;
+}
+
+.btn-success .btn-inner {
+  background: linear-gradient(135deg, #22c55e 0%, #15803d 100%);
+  box-shadow: 0 4px 0 #15803d, 0 8px 16px rgba(34, 197, 94, 0.2);
+}
+
+.btn-success:not(:disabled):hover .btn-inner {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #15803d, 0 12px 20px rgba(34, 197, 94, 0.25);
+  filter: brightness(1.05);
+}
+
+.btn-success:not(:disabled):active .btn-inner {
+  transform: translateY(4px);
+  box-shadow: 0 0px 0 #15803d, 0 2px 4px rgba(34, 197, 94, 0.1);
+}
+
+
+/* Danger Variant (Red) */
+.btn-danger {
+  background: #b91c1c;
+  border-radius: 16px;
+  padding-bottom: 5px;
+}
+
+.btn-danger .btn-inner {
+  background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);
+  box-shadow: 0 4px 0 #b91c1c, 0 8px 16px rgba(239, 68, 68, 0.2);
+}
+
+.btn-danger:not(:disabled):hover .btn-inner {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #b91c1c, 0 12px 20px rgba(239, 68, 68, 0.25);
+  filter: brightness(1.05);
+}
+
+.btn-danger:not(:disabled):active .btn-inner {
+  transform: translateY(4px);
+  box-shadow: 0 0px 0 #b91c1c, 0 2px 4px rgba(239, 68, 68, 0.1);
+}
